@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage[paperheight=407pt,paperwidth=651pt,margin=1.45cm]{geometry}
+\usepackage[pages=all]{background}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings,calc}
+\usetikzlibrary{shadows}
+\usepackage{hyperref}
+
+\input{names.tex}
+% \def\Girls{...}
+% \def\Boys{...}
+
+\definecolor{bookcolor}{RGB}{79, 85, 4}
+\definecolor{markerGirls}{RGB}{121, 26, 61}
+\definecolor{markerBoys}{RGB}{1, 110, 143}
+
+\def\Step{0.5}  %% separation between dots
+\def\Size{0.5pt}    %% radius of the dot
+
+\newsavebox{\mybox}
+\sbox{\mybox}{
+\begin{tikzpicture}[remember picture]
+    \foreach \y in {1,2,...,30}{
+        \foreach \x in {1,2,...,30}
+          \draw[fill=black,opacity=0.3,shift={(\Step*\x cm,\Step*\y cm)}] (0,) circle[radius=\Size];
+    }
+\end{tikzpicture}
+}
+
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=1,
+angle=0,
+contents={
+    \begin{tikzpicture}[remember picture,overlay]
+        % Wood background
+        \node[anchor=south west,inner sep=0] (background) at (current page.south west) {\includegraphics[width=\paperwidth,height=\paperheight]{./images/wood.JPG}};
+        % Outer book cover
+        \fill[bookcolor, drop shadow={shadow xshift=0.05cm, shadow yshift=-0.05cm, fill=black, opacity=0.5}] ([xshift=0.6cm,yshift=0.6cm]current page.south west) rectangle ([xshift=-0.6cm,yshift=-0.6cm]current page.north east);
+        % Marker for navigation
+        \foreach \name [count=\i] in \Girls {
+            \draw[rounded corners, fill=markerGirls, draw=black] ([xshift=.25cm,yshift=-.5cm-\i*0.825cm]current page.north west) rectangle ([xshift=3cm,yshift=-1.25cm-\i*0.825cm]current page.north west);
+            \node[anchor=west] at ([xshift=.25cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\hyperlink{Girls\i}{\name}};
+        }
+        \foreach \name [count=\i] in \Boys {
+            \draw[rounded corners, fill=markerBoys, draw=black] ([xshift=-.25cm,yshift=-.5cm-\i*0.825cm]current page.north east) rectangle ([xshift=-3cm,yshift=-1.25cm-\i*0.825cm]current page.north east);
+            \node[anchor=west] at ([xshift=-1.25cm,yshift=-0.825cm-\i*0.825cm]current page.north east) {\hyperlink{Boys\i}{\name}};
+        }
+        % Left white rectangle (paper page)
+        \fill[white] ([xshift=1.2cm,yshift=1.2cm]current page.south west) rectangle ([xshift=-0.5\paperwidth-0.1cm,yshift=-1.2cm]current page.north east);
+        % Right white rectangle (paper page)
+        \fill[white] ([xshift=0.5\paperwidth+0.15cm,yshift=1.2cm]current page.south west) rectangle ([xshift=-1.2cm,yshift=-1.2cm]current page.north east);
+        % Add points to the left white rectangle
+        \begin{scope}
+            \clip ([xshift=1.2cm,yshift=1.2cm]current page.south west) rectangle ([xshift=-0.5\paperwidth-0.1cm,yshift=-1.2cm]current page.north east);
+            \node at ([xshift=-0.25\paperwidth]current page.center) {\usebox\mybox};
+        \end{scope}
+        % Add points to the right white rectangle
+        \begin{scope}
+            \clip ([xshift=0.5\paperwidth+0.15cm,yshift=1.2cm]current page.south west) rectangle ([xshift=-1.2cm,yshift=-1.2cm]current page.north east);
+            \node at ([xshift=0.25\paperwidth]current page.center) {\usebox\mybox};
+        \end{scope}
+        % Inner book cover
+        \node[anchor=center,inner sep=0] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{./images/ringbinder.png}};
+    \end{tikzpicture}
+  }
+}
+
+\begin{document}
+
+\foreach \name [count=\i] in \Girls {
+    \hypertarget{Girls\i}{}
+    \section*{\name}
+    % Any additional content for \name's page
+    \newpage % Start a new page for the next name
+}
+
+\foreach \name [count=\i] in \Boys {
+    \hypertarget{Boys\i}{}
+    \section*{\name}
+    % Any additional content for \name's page
+    \newpage % Start a new page for the next name
+}
+\end{document}
