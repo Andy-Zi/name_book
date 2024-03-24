@@ -1,0 +1,63 @@
+\newcommand{\mainPage}[1]{
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north west, xshift=0.96cm, yshift=-1.4cm] at (current page.north west) {
+			\begin{tikzpicture}[decoration=penciline]
+				% Name box
+				\updateNameBox
+				\begin{scope}[shift={(0.05cm,-0.05cm)},black!50,opacity=0.5]
+					\node at (0.25cm,0.25cm) {\usebox\NameBox};
+				\end{scope}
+				\node at (0.25cm,0.25cm) {\usebox\NameBox};
+				\node at (0.5cm,-0.1cm) {\fontsize{20}{22}\fontspec{Coming Soon} #1};
+				% Subjects box Maths
+				\updateSubjectsMediumBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,-1.25cm) {\usebox\SubjectsMediumBox};
+				\end{scope}
+				\node at (0.25cm,-1.25cm) {\usebox\SubjectsMediumBox};
+				\node at (0.5cm,-1.565cm) {\fontsize{14}{16} Mathe};
+				% Subjects box German
+				\updateSubjectsMediumBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,-4.5cm) {\usebox\SubjectsMediumBox};
+				\end{scope}
+				\node at (0.25cm,-4.5cm) {\usebox\SubjectsMediumBox};
+				\node at (0.5cm,-4.815cm) {\fontsize{14}{16} Deutsch};
+				% Subjects box HSU
+				\updateSubjectsMediumBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,-7.75cm) {\usebox\SubjectsMediumBox};
+				\end{scope}
+				\node at (0.25cm,-7.75cm) {\usebox\SubjectsMediumBox};
+				\node at (0.5cm,-8.05cm) {\fontsize{14}{16} HSU};
+			\end{tikzpicture}
+		};
+		\node[anchor=north west, xshift=0.245cm, yshift=-1.4cm] at (current page.north) {
+			\begin{tikzpicture}[decoration=penciline]
+				% Subjects box Music Art WG
+				\updateSubjectsSmallBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,0.25cm) {\usebox\SubjectsSmallBox};
+				\end{scope}
+				\node at (0.25cm,0.25cm) {\usebox\SubjectsSmallBox};
+				\node at (0.5cm,-0.05cm) {\fontsize{14}{16} Musik};
+				\node at (3.5cm,-0.05cm) {\fontsize{14}{16} Kunst};
+				\node at (6.5cm,-0.05cm) {\fontsize{14}{16} WG};
+				% Subjects box Lern und Arbeitsverhalten
+				\updateSubjectsBigBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,-3.5cm) {\usebox\SubjectsBigBox};
+				\end{scope}
+				\node at (0.25cm,-3.5cm) {\usebox\SubjectsBigBox};
+				\node at (0.5cm,-3.8cm) {\fontsize{14}{16} Lern- und Arbeitsverhalten};
+				% Subjects box Soziales Verhalten
+				\updateSubjectsBigBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,-7.25cm) {\usebox\SubjectsBigBox};
+				\end{scope}
+				\node at (0.25cm,-7.25cm) {\usebox\SubjectsBigBox};
+				\node at (0.5cm,-7.55cm) {\fontsize{14}{16} Soziales Verhalten};
+			\end{tikzpicture}
+		};
+	\end{tikzpicture}
+}

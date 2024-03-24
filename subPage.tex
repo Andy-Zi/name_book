@@ -1,0 +1,26 @@
+\newcommand{\subPage}{
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north west, xshift=0.96cm, yshift=-1.4cm] at (current page.north west) {
+			\begin{tikzpicture}[decoration=penciline]
+				% Sonstiges
+				\updateSubjectsGiantBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,0.25cm) {\usebox\SubjectsGiantBox};
+				\end{scope}
+				\node at (0.25cm,0.25cm) {\usebox\SubjectsGiantBox};
+				\node at (0.5cm,-0.05cm) {\fontsize{14}{16} Sonstiges};
+			\end{tikzpicture}
+		};
+		\node[anchor=north west, xshift=0.245cm, yshift=-1.4cm] at (current page.north) {
+			\begin{tikzpicture}[decoration=penciline]
+				% Eltern
+				\updateSubjectsGiantBox
+				\begin{scope}[shift={(0.03cm,-0.03cm)},black!50,opacity=0.5]
+					\node at (0.25cm,0.25cm) {\usebox\SubjectsGiantBox};
+				\end{scope}
+				\node at (0.25cm,0.25cm) {\usebox\SubjectsGiantBox};
+				\node at (0.5cm,-0.05cm) {\fontsize{14}{16} Eltern};
+			\end{tikzpicture}
+		};
+	\end{tikzpicture}
+}

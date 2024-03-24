@@ -1,5 +1,7 @@
 # Generate your PDF
-%.pdf : %.tex
+.PHONY: always_rebuild
+
+%.pdf : %.tex always_rebuild
 	@echo '.........: pdflatex running pass 1...'
 	lualatex $< -o $@ 2>&1 | tee errors.err
 	@echo '.........: bibtex running...'
@@ -14,3 +16,7 @@ clean :
 	rm -f *.synctex.gz
 	rm -f BUILD
 	@echo
+
+copy:
+	-rm /mnt/c/Users/andre/OneDrive/Corinna/planer.pdf
+	cp planer.pdf /mnt/c/Users/andre/OneDrive/Corinna/
