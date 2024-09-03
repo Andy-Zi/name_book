@@ -27,7 +27,7 @@
 						% Check if the text is longer than 0 characters
 						\ifthenelse{\textlength > 0}{%
 							% The text is longer than 0 characters and contains \mytextlength\ characters.%
-							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\shrinktofit{0.9cm}{\fontspec{Coming Soon}\textcolor{white}\name}};
+							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\shrinktofit{0.9cm}{\ComingSoon\textcolor{white}\name}};
 							% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
 						}{%
 							% The text is empty.%
@@ -44,7 +44,7 @@
 						% Check if the text is longer than 0 characters
 						\ifthenelse{\textlength > 0}{%
 							% The text is longer than 0 characters and contains \mytextlength\ characters.%
-							\node[anchor=west] at ([xshift=-1.18cm,yshift=-0.825cm-\i*0.825cm]current page.north east) {\shrinktofit{0.9cm}{\fontspec{Coming Soon}\textcolor{white}\name}};
+							\node[anchor=west] at ([xshift=-1.18cm,yshift=-0.825cm-\i*0.825cm]current page.north east) {\shrinktofit{0.9cm}{\ComingSoon\textcolor{white}\name}};
 							% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
 						}{%
 							% The text is empty.%
@@ -74,11 +74,11 @@
 					\ifthenelse{\NOT\equal{#1}{}}{
 						\draw[rounded corners, fill=black, opacity=0.5] ([xshift=.3cm,yshift=-.55cm-#1*0.825cm]current page.north west) rectangle ([xshift=1.55cm,yshift=-1.3cm-#1*0.825cm]current page.north west);
 						\draw[rounded corners, fill=markerGirls, draw=black] ([xshift=.25cm,yshift=-.5cm-#1*0.825cm]current page.north west) rectangle ([xshift=1.5cm,yshift=-1.25cm-#1*0.825cm]current page.north west);
-						% \node[anchor=west] at ([xshift=.25cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\hyperlink{Girls\i}{\fontspec{Coming Soon}\textcolor{white}\name}};
+						% \node[anchor=west] at ([xshift=.25cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\hyperlink{Girls\i}{\ComingSoon\textcolor{white}\name}};
 						\StrLen{\name}[\textlength]
 						% Check if the text is longer than 0 characters
 						\ifthenelse{\textlength > 0}{%
-							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-#1*0.825cm]current page.north west) {\shrinktofit{1.15cm}{\fontspec{Coming Soon}\textcolor{white}\name}};
+							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-#1*0.825cm]current page.north west) {\shrinktofit{1.15cm}{\ComingSoon\textcolor{white}\name}};
 							% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
 						}{%
 							% The text is empty.%
@@ -95,7 +95,7 @@
 							\StrLen{\name}[\textlength]
 							% Check if the text is longer than 0 characters
 							\ifthenelse{\textlength > 0}{%
-								\node[anchor=west] at ([xshift=-1.43cm,yshift=-0.825cm-#2*0.825cm]current page.north east) {\shrinktofit{1.15cm}{\fontspec{Coming Soon}\textcolor{white}\name}};
+								\node[anchor=west] at ([xshift=-1.43cm,yshift=-0.825cm-#2*0.825cm]current page.north east) {\shrinktofit{1.15cm}{\ComingSoon\textcolor{white}\name}};
 								% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
 							}{%
 								% The text is empty.%

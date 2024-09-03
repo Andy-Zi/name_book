@@ -12,7 +12,17 @@
 \usepackage{graphicx}
 
 
-\setmainfont{Sacramento}
+\setmainfont{Sacramento}[
+    Path = fonts/Sacramento/,
+    Extension = .ttf,
+    UprightFont = *-Regular
+]
+
+\newfontfamily{\ComingSoon}{ComingSoon}[
+    Path = fonts/Coming_Soon/,
+    Extension = .ttf,
+    UprightFont = *-Regular
+]
 
 % \input{names.tex}
 \def\Girls{Hannah,Anna, }

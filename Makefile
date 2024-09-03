@@ -16,7 +16,3 @@ clean :
 	rm -f *.synctex.gz
 	rm -f BUILD
 	@echo
-
-copy:
-	-rm /mnt/c/Users/andre/OneDrive/Corinna/planer.pdf
-	cp planer.pdf /mnt/c/Users/andre/OneDrive/Corinna/
