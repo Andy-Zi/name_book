@@ -24,9 +24,9 @@
     UprightFont = *-Regular
 ]
 
-% \input{names.tex}
-\def\Girls{Hannah,Anna, }
-\def\Boys{Fabian,Max,}
+\input{names.tex}
+% \def\Girls{Hannah,Anna, }
+% \def\Boys{Fabian,Max,}
 \pagenumbering{gobble}
 
 \definecolor{bookcolor}{RGB}{79, 85, 4}
@@ -41,22 +41,22 @@
 \begin{document}
 
 \foreach \name [count=\i] in \Girls {
-	\createBackground{\i}{}
-	\hypertarget{Girls\i}{}
-	\mainPage{\name}
-	% Any additional content for \name's page
-	\newpage % Start a new page for the next name
-	\subPage
-	\newpage % Start a new page for the next name
+    \createBackground{\i}{}
+    \hypertarget{Girls\i}{}
+    \mainPage{\name}
+    % Any additional content for \name's page
+    \newpage % Start a new page for the next name
+    \subPage
+    \newpage % Start a new page for the next name
 }
 
 \foreach \name [count=\i] in \Boys {
-	\createBackground{}{\i}
-	\hypertarget{Boys\i}{}
-	\mainPage{\name}
-	% Any additional content for \name's page
-	\newpage % Start a new page for the next name
-	\subPage
-	\newpage % Start a new page for the next name
+    \createBackground{}{\i}
+    \hypertarget{Boys\i}{}
+    \mainPage{\name}
+    % Any additional content for \name's page
+    \newpage % Start a new page for the next name
+    \subPage
+    \newpage % Start a new page for the next name
 }
 \end{document}

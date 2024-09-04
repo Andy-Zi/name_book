@@ -27,15 +27,11 @@
 						% Check if the text is longer than 0 characters
 						\ifthenelse{\textlength > 0}{%
 							% The text is longer than 0 characters and contains \mytextlength\ characters.%
-							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\shrinktofit{0.9cm}{\ComingSoon\textcolor{white}\name}};
-							% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
-						}{%
-							% The text is empty.%
-						}
-						% \node[anchor=west, minimum height=0.75cm, minimum width=1.2cm] at ([xshift=0cm,yshift=-0.875cm-\i*0.825cm]current page.north west) {\hyperlink{Girls\i}{\phantom{\name}}};
-						\hyperlink{Girls\i}{
-							\fill [white, opacity=0] ([xshift=.25cm,yshift=-.5cm-\i*0.825cm]current page.north west) rectangle ([xshift=1.5cm,yshift=-1.25cm-\i*0.825cm]current page.north west);
-						}
+							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\tiny\ComingSoon\textcolor{white}\name};
+						}{}
+						\node[draw, fill=white, opacity=0, anchor=north west] at ([xshift=.25cm,yshift=-.5cm-\i*0.825cm]current page.north west) [minimum width=1cm, minimum height=0.75cm] {
+							\hyperlink{Girls\i}{\tikz\node[draw, fill=red, opacity=0, minimum width=1cm, minimum height=0.75cm]  {};}
+						};
 					}
 					\foreach \name [count=\i] in \Boys {
 						\draw[rounded corners, fill=black, opacity=0.5] ([xshift=-.2cm,yshift=-.55cm-\i*0.825cm]current page.north east) rectangle ([xshift=-1.45cm,yshift=-1.3cm-\i*0.825cm]current page.north east);
@@ -44,15 +40,11 @@
 						% Check if the text is longer than 0 characters
 						\ifthenelse{\textlength > 0}{%
 							% The text is longer than 0 characters and contains \mytextlength\ characters.%
-							\node[anchor=west] at ([xshift=-1.18cm,yshift=-0.825cm-\i*0.825cm]current page.north east) {\shrinktofit{0.9cm}{\ComingSoon\textcolor{white}\name}};
-							% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
-						}{%
-							% The text is empty.%
-						}
-						% \node[anchor=west, minimum height=0.75cm, minimum width=1.2cm] at ([xshift=-1.2cm,yshift=-0.875cm-\i*0.825cm]current page.north east) {\hyperlink{Boys\i}{\phantom{\name}}};
-						\hyperlink{Boys\i}{
-							\fill [white, opacity=0] ([xshift=-.25cm,yshift=-.5cm-\i*0.825cm]current page.north east) rectangle ([xshift=-1.5cm,yshift=-1.25cm-\i*0.825cm]current page.north east);
-						}
+							\node[anchor=west] at ([xshift=-1.18cm,yshift=-0.825cm-\i*0.825cm]current page.north east) {\tiny\ComingSoon\textcolor{white}\name};
+						}{}
+						\node[draw=none, fill=none, anchor=north east] at ([xshift=-0.25cm, yshift=-0.5cm-\i*0.825cm]current page.north east) {
+							\hyperlink{Boys\i}{\tikz\node[draw=none, fill=none, minimum width=1cm, minimum height=0.75cm] {};}
+						};
 					}
 					% Left white rectangle (paper page)
 					\fill[white] ([xshift=1.2cm,yshift=1.2cm]current page.south west) rectangle ([xshift=-0.5\paperwidth-0.1cm,yshift=-1.2cm]current page.north east);
@@ -74,19 +66,12 @@
 					\ifthenelse{\NOT\equal{#1}{}}{
 						\draw[rounded corners, fill=black, opacity=0.5] ([xshift=.3cm,yshift=-.55cm-#1*0.825cm]current page.north west) rectangle ([xshift=1.55cm,yshift=-1.3cm-#1*0.825cm]current page.north west);
 						\draw[rounded corners, fill=markerGirls, draw=black] ([xshift=.25cm,yshift=-.5cm-#1*0.825cm]current page.north west) rectangle ([xshift=1.5cm,yshift=-1.25cm-#1*0.825cm]current page.north west);
-						% \node[anchor=west] at ([xshift=.25cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\hyperlink{Girls\i}{\ComingSoon\textcolor{white}\name}};
+						% \node[anchor=west] at ([xshift=.25cm,yshift=-0.825cm-\i*0.825cm]current page.north west) {\hyperlink{Girls\i}{\tiny\ComingSoon\textcolor{white}\name}};
 						\StrLen{\name}[\textlength]
 						% Check if the text is longer than 0 characters
 						\ifthenelse{\textlength > 0}{%
-							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-#1*0.825cm]current page.north west) {\shrinktofit{1.15cm}{\ComingSoon\textcolor{white}\name}};
-							% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
-						}{%
-							% The text is empty.%
-						}
-						% \hyperlink{Girls#1}{
-						% 	\fill [pink, opacity=1] ([xshift=.25cm,yshift=-.5cm-#1*0.825cm]current page.north west) rectangle ([xshift=1.5cm,yshift=-1.25cm-#1*0.825cm]current page.north west);
-						% }
-						% \node[anchor=west, minimum height=0.75cm, minimum width=1.2cm] at ([xshift=0cm,yshift=-0.875cm-#1*0.825cm]current page.north west) {\hyperlink{Girls\i}{\phantom{\name}}};
+							\node[anchor=west] at ([xshift=.28cm,yshift=-0.825cm-#1*0.825cm]current page.north west) {\tiny\ComingSoon\textcolor{white}\name};
+						}{ }
 					}{
 						% Check if the second parameter is not empty
 						\ifthenelse{\NOT\equal{#2}{}}{
@@ -95,18 +80,9 @@
 							\StrLen{\name}[\textlength]
 							% Check if the text is longer than 0 characters
 							\ifthenelse{\textlength > 0}{%
-								\node[anchor=west] at ([xshift=-1.43cm,yshift=-0.825cm-#2*0.825cm]current page.north east) {\shrinktofit{1.15cm}{\ComingSoon\textcolor{white}\name}};
-								% Place a node with the hyperlink over the rectangle. The hyperlink target is now dynamically generated.
-							}{%
-								% The text is empty.%
-							}
-							% \node[anchor=west, minimum height=0.75cm, minimum width=1.2cm] at ([xshift=-1.2cm,yshift=-0.875cm-\i*0.825cm]current page.north east) {\hyperlink{Boys\i}{\phantom{\name}}};
-							% \hyperlink{Boys#2}{
-							% 	\fill [pink, opacity=1] ([xshift=-.25cm,yshift=-.5cm-#2*0.825cm]current page.north east) rectangle ([xshift=-1.5cm,yshift=-1.25cm-#2*0.825cm]current page.north east);
-							% }
-						}{
-							% Both parameters are empty. % Both are empty
-						}
+								\node[anchor=west] at ([xshift=-1.43cm,yshift=-0.825cm-#2*0.825cm]current page.north east) {\tiny\ComingSoon\textcolor{white}\name};
+							}{ }
+						}{}
 					}
 				\end{tikzpicture}
 			}
