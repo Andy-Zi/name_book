@@ -61,7 +61,7 @@
 						\node at ([xshift=0.25\paperwidth]current page.center) {\usebox\PaperPaternbox};
 					\end{scope}
 					% Inner book cover
-					\node[anchor=center,inner sep=0] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{./images/ringbinder.png}};
+					\node[anchor=center,inner sep=0, xshift=.2cm] at (current page.center) {\includegraphics[height=.9\paperheight]{./images/ringbinder.png}};
 					% Make the current page bookmark bigger
 					\ifthenelse{\NOT\equal{#1}{}}{
 						\draw[rounded corners, fill=black, opacity=0.5] ([xshift=.3cm,yshift=-.55cm-#1*0.825cm]current page.north west) rectangle ([xshift=1.55cm,yshift=-1.3cm-#1*0.825cm]current page.north west);

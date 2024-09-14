@@ -37,6 +37,7 @@
 \input{background.tex}
 \input{mainPage.tex}
 \input{subPage.tex}
+\input{subPageEmpty.tex}
 
 \begin{document}
 
@@ -48,6 +49,8 @@
     \newpage % Start a new page for the next name
     \subPage
     \newpage % Start a new page for the next name
+    \subPageEmpty
+    \newpage % Start a new page for the next name
 }
 
 \foreach \name [count=\i] in \Boys {
@@ -57,6 +60,8 @@
     % Any additional content for \name's page
     \newpage % Start a new page for the next name
     \subPage
+    \newpage % Start a new page for the next name
+    \subPageEmpty
     \newpage % Start a new page for the next name
 }
 \end{document}
